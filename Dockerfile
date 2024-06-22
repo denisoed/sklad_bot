@@ -12,8 +12,8 @@ RUN yarn install
 COPY . ${APP_ROOT}
 
 ARG bot_token
-ARG bot_url
+ARG site_url
 ENV BOT_TOKEN=${bot_token}
-ENV BOT_URL=${bot_url}
+ENV SITE_URL=${site_url}
 
 CMD ["yarn", "start"]
