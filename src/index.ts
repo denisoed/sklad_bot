@@ -3,14 +3,23 @@ import { Telegraf, Markup } from 'telegraf';
 const bot = new Telegraf(process.env.BOT_TOKEN as string);
 const URL = process.env.SITE_URL as string;
 
-const welcomeMessage = `
-Привет! 👋 Добро пожаловать на Sklad.
-
-Для начала работы нажмите на кнопку ниже, чтобы открыть веб-приложение и начать исследование!
-`;
+function createWelcomeMessage(ctx: any) {
+  return (
+    `Привет <b>${ctx.from.first_name} ${ctx.from.last_name}</b>! 👋 \n\n` +
+    'Мы рады, что вы присоединились к нам. Управление вашими товарами и продажами станет проще и удобнее.\n\n' +
+    'Если у вас возникнут вопросы или потребуется помощь, вступайте в сообщество, там вы всегда сможете получить ответы.\n\n' +
+    'Удачи и успешного управления вашими товарами!'
+  );
+}
 
 bot.start((ctx) => {
-  ctx.reply(welcomeMessage, Markup.inlineKeyboard([Markup.button.webApp('Открыть склад', URL)]));
+  ctx.replyWithHTML(
+    createWelcomeMessage(ctx),
+    Markup.inlineKeyboard([
+      [Markup.button.webApp('Открыть склад', URL)],
+      [Markup.button.url('Вступить в сообщество', 'https://t.me/sklad_community')],
+    ]),
+  );
 });
 
 bot.launch();
