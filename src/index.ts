@@ -1,7 +1,6 @@
 import { Telegraf, Markup } from 'telegraf';
 
 const bot = new Telegraf(process.env.BOT_TOKEN as string);
-const URL = process.env.SITE_URL as string;
 
 function createWelcomeMessage(ctx: any) {
   return (
@@ -16,7 +15,7 @@ bot.start((ctx) => {
   ctx.replyWithHTML(
     createWelcomeMessage(ctx),
     Markup.inlineKeyboard([
-      [Markup.button.webApp('Открыть склад', URL)],
+      [Markup.button.webApp('Открыть склад', 'https://sklad.cfd/#/')],
       [Markup.button.url('Вступить в сообщество', 'https://t.me/sklad_community')],
     ]),
   );
