@@ -15,7 +15,7 @@ bot.start((ctx) => {
   ctx.replyWithHTML(
     createWelcomeMessage(ctx),
     Markup.inlineKeyboard([
-      [Markup.button.webApp('Открыть склад', 'https://sklad.cfd/#/')],
+      [Markup.button.webApp('Открыть склад', 'https://sklad.work/#/')],
       [Markup.button.url('Вступить в сообщество', 'https://t.me/sklad_community')],
     ]),
   );
