@@ -15,10 +15,15 @@ bot.start((ctx) => {
   ctx.replyWithHTML(
     createWelcomeMessage(ctx),
     Markup.inlineKeyboard([
-      [Markup.button.webApp('Открыть склад', 'https://sklad.work/#/')],
+      [Markup.button.webApp('Запустить склад', 'https://sklad.work/#/')],
       [Markup.button.url('Вступить в сообщество', 'https://t.me/sklad_community')],
+      [Markup.button.url('Новости', 'https://t.me/sklad_channel')],
     ]),
   );
+});
+
+bot.command('login', (ctx) => {
+  console.log(ctx);
 });
 
 bot.launch();
