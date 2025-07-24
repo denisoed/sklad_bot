@@ -1,3 +1,3 @@
 # Sklad Telegram Bot
 
-Telegram Bot for managing Sklads and products.
+Telegram Bot for managing Sklads and products
